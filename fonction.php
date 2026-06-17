@@ -27,4 +27,18 @@
         mysqli_free_result ( $req ) ;
         return $res ;
     }
+
+    function get_all_departments_and_manager_s_name ()
+    {
+        $sql = " SELECT departments.dept_no , departments.dept_name , employees.first_name , employees.last_name FROM departments JOIN dept_manager ON departments.dept_no = dept_manager.dept_no JOIN employees ON dept_manager.emp_no = employees.emp_no WHERE dept_manager.to_date > current_date " ;
+        $req = mysqli_query ( dbconnect () , $sql ) ;
+        echo $sql ;
+        $res = array () ;
+        while ( $donnee = mysqli_fetch_assoc ( $req ) ) 
+        {
+            $res[] = $donnee ;
+        }
+        mysqli_free_result ( $req ) ;
+        return $res ;
+    }
 ?>

@@ -1,7 +1,7 @@
 <?php
     include ( "fonction.php" ) ;
 
-    $tout_les_departements = get_all_departments () ;
+    $tout_les_departements_et_manager = get_all_departments_and_manager_s_name () ;
 ?>
 
 <!DOCTYPE html>
@@ -18,22 +18,25 @@
     <br>
     <br>
 
-
-    <h3>Les departements sont : </h3>
+    <h3>Les departements avec les noms des managers en cour avec les liens : </h3>
     <br>
     <table border="1px solide" >
         <tr>
-            <td>Le numero des departements </td>
-            <td>Le nom des departements </td>
+            <th>Le numero des departements </th>
+            <th>Le nom des departements </th>
+            <th>Le first name des managers </th>
+            <th>Le last name des managers </th>
         </tr>
         <?php 
-            $taille = count ( $tout_les_departements ) ;
+            $taille = count ( $tout_les_departements_et_manager ) ;
             for ( $i = 0 ; $i < $taille ; $i ++ ) 
             { 
         ?>
             <tr>
-                <td><?php echo $tout_les_departements[$i]["dept_no"] ; ?></td>
-                <td><?php echo $tout_les_departements[$i]["dept_name"] ; ?></td>
+                <td><a href="afficher_les_employees.php?id_dep=<?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?>"><?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?></a></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["dept_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["first_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["last_name"] ; ?></td>
             </tr>
         <?php
             } 

@@ -16,6 +16,82 @@
 
     <br>
     <br>
+    <br>
+    <br>
+
+
+
+
+
+
+    <h3>Les departements sont : </h3>
+    <br>
+    <h3>Les departements avec les noms des managers en cour : </h3>
+    <br>
+    <table border="1px solide" >
+        <tr>
+            <th>Le numero des departements </th>
+            <th>Le nom des departements </th>
+            <th>Le first name des managers </th>
+            <th>Le last name des managers </th>
+        </tr>
+        <?php 
+            $taille = count ( $tout_les_departements_et_manager ) ;
+            for ( $i = 0 ; $i < $taille ; $i ++ ) 
+            { 
+        ?>
+            <tr>
+                <td><?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["dept_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["first_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["last_name"] ; ?></td>
+            </tr>
+        <?php
+            } 
+        ?>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+
+    <h3>Les departements avec les noms des managers en cour : </h3>
+    <br>
+    <table border="1px solide" >
+        <tr>
+            <th>Le numero des departements </th>
+            <th>Le nom des departements </th>
+            <th>Le first name des managers </th>
+            <th>Le last name des managers </th>
+        </tr>
+        <?php 
+            $taille = count ( $tout_les_departements_et_manager ) ;
+            for ( $i = 0 ; $i < $taille ; $i ++ ) 
+            { 
+        ?>
+            <tr>
+                <td><?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["dept_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["first_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager[$i]["last_name"] ; ?></td>
+            </tr>
+        <?php
+            } 
+        ?>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
 
     <h3>Les departements avec les noms des managers en cour avec les liens : </h3>
     <br>

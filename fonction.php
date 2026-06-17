@@ -27,4 +27,67 @@
         mysqli_free_result ( $req ) ;
         return $res ;
     }
-?>
+
+
+
+
+
+    function get_all_departments_and_manager_s_name ()
+    {
+        $sql = " SELECT departments.dept_no , departments.dept_name , employees.first_name , employees.last_name FROM departments JOIN dept_manager ON departments.dept_no = dept_manager.dept_no JOIN employees ON dept_manager.emp_no = employees.emp_no WHERE dept_manager.to_date > current_date " ;
+        $req = mysqli_query ( dbconnect () , $sql ) ;
+        echo $sql ;
+        $res = array () ;
+        while ( $donnee = mysqli_fetch_assoc ( $req ) ) 
+        {
+            $res[] = $donnee ;
+        }
+        mysqli_free_result ( $req ) ;
+        return $res ;
+    }
+
+    function get_all_employees_in_dep ( $depart , $i )
+    {
+        $sql = " SELECT * FROM employees WHERE emp_no IN  ( SELECT emp_no FROM dept_emp WHERE dept_no = '%s' AND ( from_date < current_date AND current_date < to_date )  ) LIMIT %d , 20  " ;
+        $sql = sprintf ( $sql , $depart , ( $i * 20 ) ) ;
+        echo $sql ;
+        $req = mysqli_query ( dbconnect () , $sql ) ;
+        $res = array () ;
+        while ( $donnee = mysqli_fetch_assoc ( $req ) ) 
+        {
+            $res[] = $donnee ;
+        }
+        mysqli_free_result ( $req ) ;
+        return $res ;
+    }
+
+    function get_employee ( $id )
+    {
+        $sql = " SELECT * FROM employees WHERE emp_no = %d " ;
+        $sql = sprintf ( $sql , $id ) ;
+        echo $sql ;
+        $req = mysqli_query ( dbconnect () , $sql ) ;
+        $res = array () ;
+        while ( $donnee = mysqli_fetch_assoc ( $req ) ) 
+        {
+            $res[] = $donnee ;
+        }
+        mysqli_free_result ( $req ) ;
+        return $res ;
+    }
+
+    function get_employee_avec_salaire_et_emploi ( $id ) 
+    {
+        $sql = " SELECT s.salary, t.title FROM salaries s join titles t on s.emp_no = t.emp_no where s.emp_no= %d " ;
+        $sql = sprintf($sql, $id ) ;
+        echo $sql ;
+        $req = mysqli_query(dbconnect(), $sql ) ;
+        $result = array();
+        while ( $line = mysqli_fetch_assoc ( $req ) ) 
+        {
+            $result[] = $line ;
+        }
+        mysqli_free_result ( $req ) ;
+        return $result ;
+    }
+

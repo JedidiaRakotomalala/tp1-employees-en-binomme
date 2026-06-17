@@ -115,5 +115,4 @@ Revenir sur "fiche_employee.php" :
         . php :
             - appeler la fonction get_employee_avec_salaire_et_emploi ( $id ) ;
             
-        . html :
-            - creer un tableau qui contient l'historique des salaires et des emploi .
+        . html

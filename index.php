@@ -18,7 +18,7 @@
     <br>
     <br>
 
-    <h3>Les departements avec les noms des managers en cour : </h3>
+    <h3>Les departements avec les noms des managers en cour avec les liens : </h3>
     <br>
     <table border="1px solide" >
         <tr>
@@ -33,7 +33,7 @@
             { 
         ?>
             <tr>
-                <td><?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?></td>
+                <td><a href="afficher_les_employees.php?id_dep=<?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?>"><?php echo $tout_les_departements_et_manager[$i]["dept_no"] ; ?></a></td>
                 <td><?php echo $tout_les_departements_et_manager[$i]["dept_name"] ; ?></td>
                 <td><?php echo $tout_les_departements_et_manager[$i]["first_name"] ; ?></td>
                 <td><?php echo $tout_les_departements_et_manager[$i]["last_name"] ; ?></td>

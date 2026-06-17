@@ -1,4 +1,5 @@
 <?php
+
     function dbconnect ()
     {
         static $connect = null ;
@@ -91,3 +92,18 @@
         return $result ;
     }
 
+
+    function recherche_emploie ( $nom_departement , $nom_employee , $age_min , $age_max )
+    {
+        $sql = " SELECT * FROM employees JOIN dept_manager ON employees.emp_no = dept_manager.emp_no JOIN departments ON departments.dept_no = dept_manager.dept_no WHERE employees.first_name LIKE '%%%s%%' AND departments.dept_name LIKE '%%%s%%' AND ( current_date - employees.birth_date ) > %d AND ( current_date - employees.birth_date ) < %d  " ;
+        $sql = sprintf($sql, $nom_employee , $nom_departement , $age_min , $age_max ) ;
+        echo $sql ;
+        $req = mysqli_query(dbconnect(), $sql ) ;
+        $result = array();
+        while ( $line = mysqli_fetch_assoc ( $req ) ) 
+        {
+            $result[] = $line ;
+        }
+        mysqli_free_result ( $req ) ;
+        return $result ;
+    }

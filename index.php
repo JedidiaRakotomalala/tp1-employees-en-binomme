@@ -42,5 +42,29 @@
             } 
         ?>
     </table>
+
+
+    <h3>Recherche : </h3>
+
+    <form action="resultat_recherche.php" method="post">
+        <label>Nom departement : </label>
+        <input type="text" name="dep" >
+        <br>
+        <br>
+        <label>Nom employee : </label>
+        <input type="text" name="nom_e" >
+        <br>
+        <br>
+        <label>Age min :</label>
+        <input type="number" name="age_min" >
+        <br>
+        <br>
+        <label>Age max :</label>
+        <input type="number" name="age_max" >
+        <br>
+        <br>
+        <input type="submit" value="Chercher">
+        <label></label>
+    </form>
 </body>
 </html>

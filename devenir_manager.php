@@ -18,22 +18,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="p-4 bg-light">
     
 
     <h3>Le manager en cour est : <?php echo $man_c[0]["manager_first_name"] ; ?></h3>
 
+    <br>
 
-    <form action="traitement_manager.php" method="post">
+    <form action="traitement_manager.php" method="post" style="max-width: 400px;">
         <input type="hidden" name="id" value="<?php echo $id_emp ; ?>" >
-        <label>Date de debut </label>
-        <input type="date" name="date" >
+        
+        <div class="mb-3">
+            <label class="form-label">Date de debut </label>
+            <input type="date" name="date" class="form-control">
+        </div>
+        
         <br>
-        <input type="submit" value="Devenir manager">
+        <input type="submit" value="Devenir manager" class="btn btn-success px-4">
     </form>
 
-    <a href="afficher_les_employees.php">Retour</a>
+    <br>
+    <br>
+
+    <a href="afficher_les_employees.php" class="btn btn-secondary">Retour</a>
 
 
 

@@ -87,6 +87,11 @@
         </tbody>
     </table>
 
+    <br>
+    
+    <a href="changement_de_departement.php?id=<?php echo $id_empl ; ?>" class="btn btn-warning me-2 text-dark">Changer de departement</a>
+
+    <a href="devenir_manager.php?id=<?php echo $id_empl ; ?>" class="btn btn-success">Devenir manager</a>
 
 </body>
 </html>

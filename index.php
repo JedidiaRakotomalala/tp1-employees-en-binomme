@@ -1,8 +1,43 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
+
+    session_start () ;
+
+    $_SESSION["indice"] = 0 ;
+
+    $_SESSION["id_dep"] = null ;
+
     include ( "fonction.php" ) ;
 
+    $tout_les_departements = get_all_departments () ;
+
     $tout_les_departements_et_manager = get_all_departments_and_manager_s_name () ;
+
+    $tout_les_departements_et_manager_avec_nombre = get_all_departments_and_manager_s_name_and_numbre () ;
+ 
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -155,5 +190,75 @@
         <br>
         <input type="submit" value="Chercher" class="btn btn-primary px-4">
     </form>
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <h3>Les departements avec les noms des managers en cour et les nombres des emloyees : </h3>
+    <br>
+    <table border="1px solide" >
+        <tr>
+            <th>Le numero des departements </th>
+            <th>Le nom des departements </th>
+            <th>Le first name des managers </th>
+            <th>Le last name des managers </th>
+            <th>Le nombre des employees dans le departement </th>
+        </tr>
+        <?php 
+            $taille = count ( $tout_les_departements_et_manager_avec_nombre ) ;
+            for ( $i = 0 ; $i < $taille ; $i ++ ) 
+            { 
+        ?>
+            <tr>
+                <td><?php echo $tout_les_departements_et_manager_avec_nombre[$i]["dept_no"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager_avec_nombre[$i]["dept_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager_avec_nombre[$i]["first_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager_avec_nombre[$i]["last_name"] ; ?></td>
+                <td><?php echo $tout_les_departements_et_manager_avec_nombre[$i]["nombre_employee"] ; ?></td>
+            </tr>
+        <?php
+            } 
+        ?>
+    </table>
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+    <br>
+
+
+
+
+    <a href="detail_employee.php">Detail employee</a>
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
 </html>

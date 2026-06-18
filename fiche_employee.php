@@ -86,6 +86,7 @@
             <?php } ?>
         </tbody>
     </table>
+    <p>L'emploi le plus long est : <?php echo determiner_l_emploi_le_plus_long ($id_empl)[0]["emploi"] ; ?></p>
 
     <br>
     
